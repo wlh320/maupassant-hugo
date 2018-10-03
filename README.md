@@ -57,7 +57,7 @@ googleAnalytics = ""
   # 本主题的配置项
   toc = true
   autoCollapseToc = true
-  mathjax = true
+  mathjax = true # front-matter 也可以单独设置
 
 [menu]
 

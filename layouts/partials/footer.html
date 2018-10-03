@@ -14,7 +14,7 @@
 
 {{ if .IsPage }}
 <script type="text/javascript" src="{{ "js/prism.js" | relURL}}" async="true"></script>
-    {{ if .Params.mathjax }}
+    {{ if or .Params.mathjax (and .Site.Params.mathjax (ne .Params.mathjax false)) }}
     <script type="text/javascript">
         window.MathJax = {
             tex2jax: {
