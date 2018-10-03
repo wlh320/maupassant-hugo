@@ -13,7 +13,8 @@
                             <h1 class="post-title">{{ .Title }}</h1>
                         </header>
                         <date class="post-meta meta-date">
-                            发布于 {{ .Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02 03:04:05") }}
+                            {{ .Date.Year }}年{{ printf "%d" .Date.Month }}月{{ .Date.Day }}日
+                            {{ printf "%02d" .Date.Hour }}:{{ printf "%02d" .Date.Minute }}
                         </date>
                         {{ with .Params.Categories }}
                         <div class="post-meta meta-category">
@@ -26,23 +27,10 @@
                         <div class="post-content">
                             {{ .Content }}
                         </div>
-
-                        <div class="post-meta meta-tags">
-                            {{ if and (isset .Params "tags") .Params.tags }}
-                            <ul class="clearfix">
-                                {{ range .Params.Tags }}
-                                <li><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
-                                {{ end }}
-                            </ul>
-                            {{ else }}
-                            没有标签
-                            {{ end }}
-                        </div>
                     </article>
                 </div>
             </div>
-            {{ partial "toc" . }}
-            <!-- {{ partial "sidebar" . }} -->
+            {{ partial "sidebar" . }}
         </div>
     </div>
 </div>

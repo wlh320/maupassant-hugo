@@ -27,20 +27,19 @@
     <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Title }}{{ end }}">
         {{ if .Params.author -}}
     <meta name="author" content="{{ .Params.author }}">
-        {{ else }}
-    <meta name="author" content="{{ .Site.Author.name }}">
         {{- end }}
     {{- end }}
     <meta property="og:url" content="{{ .Permalink }}">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    {{ $normalize := resources.Get "css/normalize.css" | minify}}
+    {{ $styles := resources.Get "css/style.scss" | resources.ToCSS | minify }}
+    <link rel="stylesheet" href="{{ $normalize.Permalink | relURL }}">
+    <link rel="stylesheet" href="{{ $styles.Permalink | relURL }}">
 
-    <link rel="stylesheet" href="{{ "css/normalize.css" | relURL}}">
     {{ if .IsPage }}
     <link rel="stylesheet" href="{{ "css/prism.css" | relURL }}">
     {{ end }}
-    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
     {{ range .AlternativeOutputFormats -}}
         {{ printf `<link rel="%s" type="%s+%s" href="%s" title="%s" />` .Rel .MediaType.Type .MediaType.Suffix .Permalink $.Site.Title | safeHTML }}
     {{ end -}}
-    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 </head>

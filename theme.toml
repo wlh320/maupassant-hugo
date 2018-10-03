@@ -9,17 +9,16 @@ licenselink = ""
 description = "Maupassant 最初是由Cho大神为Typecho平台设计开发的一套响应式模板，简洁、大气，大道至简。"
 homepage = "https://github.com/pagecho/maupassant"
 tags = ["maupassant"]
-features = ["Tag","Category","Menu","Recent Post","Archives"]
+features = ["Tag","Category","Menu","Recent Post","Archives", "TOC"]
 min_version = "0.30"
 
 [author]
-  name = "飞雪无情"
-  homepage = "http://www.flysnow.org"
+  name = "zilcH40"
+  homepage = "https://zilch40.wang"
 
 [originauthor]
-  name = "Joker Qyou"
-  homepage = "https://mynook.inf"
-
+  name = "飞雪无情"
+  homepage = "http://www.flysnow.org"
 
 # If porting an existing theme
 [original]

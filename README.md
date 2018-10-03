@@ -1,60 +1,63 @@
 # Maupassant
-Maupassant theme, ported to Hugo.
 
-1. Preview: [flysnow blog](http://www.flysnow.org)
-2. [中文文档](README_Zh.md)
+It is a hugo theme forked from [maupassant-hugo](https://github.com/rujews/maupassant-hugo).
 
-A simple Hugo template with great performance on different devices, ported from a Typecho theme by [Cho](https://github.com/pagecho/maupassant/), forked and modified from [JokerQyou](https://github.com/JokerQyou/maupassant-hugo).
+是我对 maupassant-hugo 这个主题的个人客制化
 
-## Preview
-
-![template preview](./preview.png "Maupassant template preview")
+[Theme Preview](https://blog.zilch40.wang)
 
 ## Features
 
+相比 [maupassant-hugo](https://github.com/rujews/maupassant-hugo) 添加了 TOC 功能，去掉了我不想要的功能.
+
+本来想 fork 之后提个 PR，但是发现除了增加 TOC 之外其他地方也有不少改动已经很难 merge 了就作罢了
+
+因为功能的减少，主页资源 gzip 传输只有 20kB，文章页要大一点.
+
 ## Installation
 
-```bash
-cd <YOUR Bolg Root Dir>
-git clone https://github.com/rujews/maupassant-hugo themes/maupassant
+In your hugo site folder, run
+
+```
+git clone https://github.com/wlh320/maupassant-hugo themes/maupassant
 ```
 
-## Configuration
+Then configure it in `config.toml` as the following part suggesting.
 
-#### Apply theme
+To write new blog, run `hugo new posts/your-title.md`.
+
+To enable `Arhives` and `About` columns, run `hugo new archives/index.md` and `hugo new about/index.md` respectively.
+
+## Config
+
+我主要自己用，可配置项就很少，如果真有人用的话会增加.
+
+Basic `config.toml` file
 
 ```toml
-theme = "maupassant"
-```
-
-#### Basic Configuration
-
-```toml
-baseURL = "http://www.flysnow.org"
+# base config
+baseURL = "https://example.org"
 languageCode = "zh-CN"
-title = "飞雪无情的博客"
+title = "Blog"
 theme = "maupassant"
 
-[author]
-  name = "飞雪无情"
+# config
+enableRobotsTXT = true
+paginate = 6
+googleAnalytics = ""
 
 [params]
-  author = "飞雪无情"
-  subtitle = "专注于Android、Java、Go语言(golang)、移动互联网、项目管理、软件架构"
-  keywords = "golang,go语言,go语言笔记,飞雪无情,java,android,博客,项目管理,python,软件架构,公众号,小程序"
-  description = "专注于IT互联网，包括但不限于Go语言(golang)、Java、Android、Python、项目管理、抖音分析、软件架构等"
-```
+  author = "xxx"
+  subtitle = "xxx"
+  keywords = "xxx"
+  description = "xxx"
 
-#### Menus
+  # 本主题的配置项
+  toc = true
+  autoCollapseToc = true
+  mathjax = true
 
-```toml
 [menu]
-
-  [[menu.main]]
-    identifier = "books"
-    name = "新书"
-    url = "/books/"
-    weight = 2
 
   [[menu.main]]
     identifier = "archives"
@@ -69,50 +72,11 @@ theme = "maupassant"
     weight = 4
 ```
 
-#### friend links
+Besides, you can change theme color in `asserts/css/style.scss`.
 
-```toml
-[[params.links]]
-  title = "Android Gradle权威指南"
-  name = "Android Gradle权威指南"
-  url = "http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e"
-[[params.links]]
-  title = "常用开发工具CDN镜像"
-  name = "常用开发工具CDN镜像"
-  url = "http://mirrors.flysnow.org/"
-```
+# TODO
 
-#### Google Analytics
+- [ ] i18n 国际化
+- [ ] higher configurability 高可配置性
+- [ ] better typography 更好的文档排版
 
-```toml
-googleAnalytics = "GA ID"
-```
-
-#### Disqus
-
-```toml
-disqusShortname = "yourdiscussshortname"
-```
-
-#### Page View Support
-
-```toml
-[params]
-  busuanzi = true
-```
-
-## Contributing
-
-All kinds of contributions (enhancements, new features, documentation & code improvements, issues & bugs reporting) are welcome.
-
-Looking forward to your pull request.
-
-## Maupassant on other platforms
-
-+ Typecho：https://github.com/pagecho/maupassant/
-+ Octopress：https://github.com/pagecho/mewpassant/
-+ Farbox：https://github.com/pagecho/Maupassant-farbox/
-+ Wordpress：https://github.com/iMuFeng/maupassant/
-+ Ghost: https://github.com/LjxPrime/maupassant/
-+ Hexo: https://github.com/tufu9441/maupassant-hexo
-+ Hugo: https://github.com/rujews/maupassant-hugo
