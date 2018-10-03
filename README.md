@@ -4,6 +4,8 @@ It is a hugo theme forked from [maupassant-hugo](https://github.com/rujews/maupa
 
 是我对 maupassant-hugo 这个主题的个人客制化
 
+原本起个名字叫 simpale(simple+pale)，但是懒得自己从头写，小改一下别人的样式就改名字感觉不太好，所以还是 fork 一下比较合适.
+
 [Theme Preview](https://blog.zilch40.wang)
 
 ## Features
