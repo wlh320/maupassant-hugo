@@ -16,7 +16,7 @@ body {
 body {
   background-color: #FFF;
   // color:#444;
-  font-size: 15px;
+  font-size: 1em;
   font-family: "Open Sans", "PingFang SC", "Noto Sans CJK SC", "Noto Sans", "Microsoft Yahei", "Microsoft Jhenghei", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -155,7 +155,7 @@ textarea {
 
 .description {
   margin: 5px 0 0;
-  color: #999;
+  color: #666;
 }
 
 #nav-menu {
@@ -271,7 +271,7 @@ h1.post-title {
 .post-meta {
   padding: 0;
   margin: 9px 0 0;
-  color: #999;
+  color: #666;
   text-align: left;
   display: inline-block;
 }
@@ -924,7 +924,6 @@ screen and (max-width:500px) {
   position: absolute;
   width: 250px;
   padding: 10px;
-  font-family: Athelas, STHeiti, Microsoft Yahei, serif;
   border-radius: 5px;
   background: white;
   word-wrap: break-word;
@@ -942,6 +941,7 @@ screen and (max-width:500px) {
 
 .post-toc-content ul {
   padding-left: 20px;
+  padding-top: 0.1em;
 }
 
 .post-toc-content ul ul {
@@ -959,6 +959,7 @@ screen and (max-width:500px) {
 
 .post-toc-content li {
   list-style-type: decimal;
+  padding: 0.1em;
 }
 
 .post-toc-title {
