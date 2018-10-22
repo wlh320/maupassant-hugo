@@ -33,8 +33,12 @@ button.submit {
 }
 
 a:hover,
-a:active {
+a:active, a:focus {
   color: $theme-color;
+}
+
+:focus {
+  outline: none !important;
 }
 
 mark {
