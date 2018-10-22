@@ -8,7 +8,6 @@
 <a id="rocket" class="lb-doubleup" href="#top"></a>
 {{ template "_internal/google_analytics_async.html" . }}
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
 {{ $app := resources.Get "js/app.js" | minify }}
 <script type="text/javascript" src="{{ $app.Permalink | relURL}}" defer></script>
 
@@ -27,4 +26,22 @@
     </script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
     {{ end }}
+    {{ if or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.1.1/tocbot.min.js"></script>
+    {{ $globalAutoCollapseToc := .Site.Params.autoCollapseToc | default false }}
+    <script>
+        tocbot.init({
+            // Where to render the table of contents.
+            tocSelector: '.post-toc',
+            // Where to grab the headings to build the table of contents.
+            contentSelector: '.post-content',
+            // Which headings to grab inside of the contentSelector element.
+            headingSelector: 'h1, h2, h3',
+            collapseDepth: {{ if not (or .Params.autoCollapseToc (and $globalAutoCollapseToc (ne .Params.autoCollapseToc false))) }} 6 {{else}} 0 {{ end }},
+            scrollSmooth: false,
+            positionFixedSelector: '.post-toc',
+            fixedSidebarOffset: 'auto',
+        });
+    </script>
+    {{end}}
 {{ end }}

@@ -919,53 +919,69 @@ screen and (max-width:500px) {
   border-bottom-color: $theme-color;
 }
 
-/* toc */
-.post-toc {
-  position: absolute;
-  width: 250px;
-  padding: 10px;
-  border-radius: 5px;
-  background: white;
-  word-wrap: break-word;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.post-toc-content.always-active ul {
-  display: block;
-}
-
-.post-toc-content>nav>ul {
-  margin: 10px 0;
-}
-
-.post-toc-content ul {
-  padding-left: 20px;
-  padding-top: 0.1em;
-}
-
-.post-toc-content ul ul {
-  padding-left: 15px;
-  display: none;
-}
-
-.post-toc-content ul .has-active>ul {
-  display: block;
-}
-
-.post-toc-content .toc-link.active {
-  color: $theme-color;
-}
-
-.post-toc-content li {
-  list-style-type: decimal;
+// TOC
+.post-toc li {
+  list-style-type: none;
   padding: 0.1em;
 }
 
-.post-toc-title {
+.toc {
+  overflow-y: auto;
+}
+
+.toc > .toc-list {
+  overflow: hidden;
+  position: relative;
+
+  li {
+    list-style: none;
+  }
+}
+
+.toc-list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+a.toc-link {
+  color: currentColor;
+  height: 100%;
+}
+
+.is-collapsible {
+  max-height: 1000px;
+  overflow: hidden;
+  transition: all 300ms ease-in-out;
+}
+
+.is-collapsed {
+  max-height: 0;
+}
+
+.is-position-fixed {
+  position: fixed !important;
+  top: 5%;
+}
+
+a.is-active-link {
+  font-weight: 700;
   color: $theme-color;
 }
 
+.toc-link::before {
+  background-color: #ddd;
+  content: ' ';
+  display: inline-block;
+  height: inherit;
+  left: 0;
+  margin-top: -1px;
+  position: absolute;
+  width: 1.5px;
+}
+
+.is-active-link::before {
+  background-color: $theme-color;
+}
 /* back-to-top rocket （I change it to an arrow */
 @media print,
 screen and (min-width: 48em) {
